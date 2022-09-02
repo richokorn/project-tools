@@ -1,0 +1,44 @@
+$spacingtypes: (
+  'p': 'padding',
+  'm': 'margin',
+);
+
+$sizes: (
+  '0': none,
+  'none': none,
+  'sm': 0.25rem,
+  'md': 0.5rem,
+  'lg': 1rem,
+);
+
+$choices: (
+  'top': 'top',
+  'bottom': 'bottom',
+  'left': 'left',
+  'right': 'right',
+  'x': 'left' 'right',
+  'y': 'top' 'bottom',
+);
+
+// first-level map-loop, through our types of spacing
+@each $spacingtype, $spacingtype-prop in $spacingtypes {
+  .#{$spacingtype} {
+    // second-level map-loop, through our sizes
+    @each $size, $size-prop in $sizes {
+      &-#{$size} {
+        // "m-sm" or "p-md" etc.
+        #{$spacingtype-prop}: $size-prop;
+
+        // third-level map-loop, through our choices
+        @each $choice, $choice-prop in $choices {
+          &-#{$choice} {
+            // final sub-level loop to handle n>=1 properties
+            @each $choice-prop in $choice-prop {
+              #{spacingtype-prop}-#{$choice-prop}: $size-prop;
+            }
+          }
+        }
+      }
+    }
+  }
+}
