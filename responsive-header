@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Responsive Header</title>
+    <!-- End of Boilerplate -->
+
+    <!-- Main Style Begins Here -->
+    <style>
+      * {
+        font-family: 'Roboto', sans-serif;
+      }
+
+      .grid {
+        display: grid;
+        grid-gap: 0.75rem;
+        grid-template-columns: auto auto auto 1fr auto;
+        grid-template-rows: repeat(3, auto);
+      }
+
+      .title { order: 1; }
+      .meta1 { order: 2; }
+      .meta2 { order: 3; }
+      .empty1 { order: 4; }
+      .buttondiv { 
+        order: 5;
+        display: flex;
+        gap: 0.25rem;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .title {
+          order: 1;
+          grid-column-start: 1;
+          grid-column-end: 4;
+        }
+        .empty1 { order: 2;
+          grid-column-start: 4;
+          grid-column-end: 5;
+        }
+        .buttondiv { order: 4; }
+        .meta1 { 
+          order: 5; 
+          grid-column-start: 1;
+          grid-column-end: -1;
+        }
+        .meta2 { 
+          order: 6;
+          grid-column-start: 1;
+          grid-column-end: -1;
+        }
+      }
+
+      .c1 { /* basic content box styling  */
+        font-size: 14px;
+        align-items: center;
+        line-height: auto;
+        height: min-height;
+        border-radius: 0.5rem;
+      }
+
+      .c2 { /* actual visible content styling  */
+        background-color: lightblue;
+        padding: 0.75rem 1rem;
+      }
+
+      .c3 { /* invisible box styling */
+        border: 1px solid red;
+        padding: 0.75rem 0;
+        margin: 0 -0.75rem;  
+        z-index: 99;
+      }
+
+      .center {
+        align-items: center;
+        line-height: auto;
+        text-align: center; 
+        line-height: auto;
+      }
+  </style>
+  <!-- Main Style Ends Here -->
+  
+  </head>
+  
+  <!-- Page Content -->
+  <body>
+    <div class="grid">
+      <div class="title c1 c2"><h3 style="margin: 0">Title Goes Here</h3></div>
+      <div class="meta1 c1 c2"><strong>Meta: </strong>Info 1</div>
+      <div class="meta2 c1 c2"><strong>Meta: </strong>Info 2</div>
+      <div class="buttondiv c1 c2 center row">
+        <button>✏️</button>
+        <button>🗑️</button>
+        <button>❌</button>
+      </div>
+      <div class="empty1 c1 c3 center"></div>
+    </div
+  </body>
+  <!-- End of Page Content -->
+  
+</html>
