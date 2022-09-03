@@ -24,6 +24,7 @@
       .meta1 { order: 2; }
       .meta2 { order: 3; }
       .empty1 { order: 4; }
+      
       .buttondiv { 
         order: 5;
         display: flex;
@@ -36,18 +37,21 @@
           grid-column-start: 1;
           grid-column-end: 4;
         }
-        .empty1 { order: 2;
+        .empty1 { 
+          order: 2;
           grid-column-start: 4;
           grid-column-end: 5;
         }
-        .buttondiv { order: 4; }
+        .buttondiv { 
+          order: 3; 
+        }
         .meta1 { 
-          order: 5; 
+          order: 4; 
           grid-column-start: 1;
           grid-column-end: -1;
         }
         .meta2 { 
-          order: 6;
+          order: 5;
           grid-column-start: 1;
           grid-column-end: -1;
         }
